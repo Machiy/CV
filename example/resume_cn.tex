@@ -1,0 +1,98 @@
+\documentclass[10pt,a4paper]{article}
+
+\usepackage{geometry}
+\geometry{left=1cm, right=1cm, top=0.6cm, bottom=0.6cm}
+
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{fontawesome5}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage[none]{hyphenat}
+
+\setmainfont{Arial}
+\setCJKmainfont[AutoFakeBold=true]{Microsoft YaHei}
+\setCJKsansfont[AutoFakeBold=true]{Microsoft YaHei}
+\setCJKmonofont[AutoFakeBold=true]{Microsoft YaHei}
+
+% 调整行距与段落间距
+\linespread{1.2}
+\setlength{\parskip}{0.2ex}
+
+% 颜色定义
+\definecolor{myblue}{RGB}{74,118,206}
+\definecolor{tagblue}{RGB}{120,150,220}
+\definecolor{tagbg}{RGB}{240,245,255}
+
+\pagestyle{empty}
+
+\newcommand{\cvsection}[2]{
+  \vspace{0.6ex}
+  \noindent{\color{myblue}\Large\bfseries\faIcon{#1}\hspace{0.5em}#2} \textcolor{myblue!50}{\hrulefill}\par
+  \vspace{0.3ex}
+}
+
+\newcommand{\cvtag}[1]{%
+  \raisebox{0.1ex}{%
+    \setlength{\fboxsep}{1.5pt}%
+    \colorbox{tagbg}{\textcolor{tagblue}{\fontsize{11pt}{13.2pt}\selectfont #1}}%
+  }%
+  \hspace{0.2em}%
+}
+
+\setlist[itemize,1]{leftmargin=0pt, label=, itemsep=0.4ex, topsep=0.4ex, parsep=0pt}
+\setlist[itemize,2]{leftmargin=0.7em, label=$\circ$, itemsep=0.2ex, topsep=0.2ex, parsep=0pt}
+
+\begin{document}
+
+\vspace*{-0.6cm}
+\begin{center}
+  \textbf{\LARGE [姓名]}\\[0.5ex]
+  [电话] ~|~ [邮箱] ~|~ [出生年月] ~|~ [性别] ~|~ [政治面貌]
+\end{center}
+
+% 照片占位符
+\begin{picture}(0,0)
+  \put(440, 7){
+    % \includegraphics[height=2.4cm, keepaspectratio]{photo.jpg} 
+    \framebox(68,90){照片}
+  }
+\end{picture}
+\vspace*{-1.2cm}
+
+\cvsection{graduation-cap}{教育经历}
+
+{\fontsize{12pt}{14.4pt}\selectfont\noindent\textbf{[大学名称]} - [专业名称] [学位] \hspace{0.5em} \cvtag{标签1} \cvtag{标签2} \hfill [开始日期] - [结束日期]\par}
+\begin{itemize}[leftmargin=1em, label=, itemsep=0.35ex, topsep=0.05ex]
+\item \textbf{【成绩\&课程】} \textbf{GPA: X.X/4.0}；重点课程：课程A，课程B，课程C等。
+\end{itemize}
+
+\cvsection{briefcase}{实习经历}
+
+{\fontsize{12pt}{14.4pt}\selectfont\noindent\textbf{[公司名称]} - [部门名称] - [岗位名称] \hfill [开始日期] - [结束日期]\par}
+\begin{itemize}[leftmargin=1em, label=, itemsep=0.35ex, topsep=0.05ex]
+\item \textbf{【项目描述】} 简述项目内容及其重要性；
+\item \textbf{【个人职责】} 描述您的具体工作，使用量化指标体现成果；
+\item \textbf{【核心贡献】} 解决了什么问题，带来了什么提升（例如：效率提升 X\%, 误差降低 Y\%）。
+\end{itemize}
+
+\cvsection{star}{项目比赛经历}
+
+{\fontsize{12pt}{14.4pt}\selectfont\noindent\textbf{[项目名称]} - [担任角色] \hfill [开始日期] - [结束日期]\par}
+\begin{itemize}[leftmargin=1em, label=, itemsep=0.35ex, topsep=0.05ex]
+\item \textbf{【项目背景】} 为什么要开展此项目；
+\item \textbf{【技术方案】} 使用了哪些技术栈和方法论；
+\item \textbf{【项目成果】} 获得的奖项、专利或发表的论文。
+\end{itemize}
+
+\cvsection{user}{个人总结}
+
+\begin{itemize}[leftmargin=0pt, label=, itemsep=0.3ex, topsep=0.3ex]
+\item \textbf{【荣誉】} 奖学金、优秀学生等。
+\item \textbf{【技能】} 编程语言、专业软件、外语能力等。
+\item \textbf{【自我评价】} 简洁描述职业素养和性格优势。
+\end{itemize}
+
+\end{document}

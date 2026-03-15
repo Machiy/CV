@@ -1,0 +1,29 @@
+# TeX artifacts
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.pdf
+*.gz
+*.synctex.gz
+*.xdv
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.env
+venv/
+.venv/
+env/
+
+# IDEs
+.vscode/
+.idea/
+.DS_Store
+
+# Sensitive data (optional, but good practice for templates)
+# resume_cn.pdf
+# resume_en.pdf
+# resume_combined.pdf

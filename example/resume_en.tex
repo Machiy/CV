@@ -1,0 +1,92 @@
+\documentclass[10pt,a4paper]{article}
+
+\usepackage{geometry}
+\geometry{left=1cm, right=1cm, top=0.6cm, bottom=0.6cm}
+
+\usepackage{fontspec}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{fontawesome5}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+
+\setmainfont{Arial}
+
+% Adjust line spacing and paragraph spacing
+\linespread{1.18}
+\setlength{\parskip}{0.15ex}
+
+% Color definitions
+\definecolor{myblue}{RGB}{74,118,206}
+\definecolor{tagblue}{RGB}{120,150,220}
+\definecolor{tagbg}{RGB}{240,245,255}
+
+\pagestyle{empty}
+
+\newcommand{\cvsection}[2]{
+  \vspace{0.5ex}
+  \noindent{\color{myblue}\Large\bfseries\faIcon{#1}\hspace{0.5em}#2} \textcolor{myblue!50}{\hrulefill}\par
+  \vspace{0.2ex}
+}
+
+\newcommand{\cvtag}[1]{%
+  \raisebox{0.1ex}{%
+    \setlength{\fboxsep}{1.5pt}%
+    \colorbox{tagbg}{\textcolor{tagblue}{\fontsize{11pt}{13.2pt}\selectfont #1}}%
+  }%
+  \hspace{0.2em}%
+}
+
+\setlist[itemize,1]{leftmargin=0pt, label=, itemsep=0.4ex, topsep=0.4ex, parsep=0pt}
+\setlist[itemize,2]{leftmargin=0.7em, label=$\circ$, itemsep=0.2ex, topsep=0.2ex, parsep=0pt}
+
+\begin{document}
+
+\vspace*{-0.6cm}
+\begin{center}
+  \textbf{\LARGE [NAME]}\\[0.5ex]
+  [Phone] ~|~ [Email] ~|~ [Date of Birth] ~|~ [Gender]
+\end{center}
+
+\begin{picture}(0,0)
+  \put(440, 7){
+    % \includegraphics[height=2.4cm, keepaspectratio]{photo.jpg}
+    \framebox(68,90){Photo}
+  }
+\end{picture}
+\vspace*{-1.2cm}
+
+\cvsection{graduation-cap}{Education}
+
+{\fontsize{12pt}{14.4pt}\selectfont\noindent\textbf{[University Name]} - [Major] [Degree] \hspace{0.5em} \cvtag{Tag 1} \cvtag{Tag 2} \hfill [Start Date] - [End Date]\par}
+\begin{itemize}[leftmargin=1em, label=, itemsep=0.35ex, topsep=0.05ex]
+\item \textbf{[GPA \& Courses]} \textbf{GPA: X.X/4.0}; Key Courses: Course A, Course B, Course C, etc.
+\end{itemize}
+
+\cvsection{briefcase}{Experience}
+
+{\fontsize{12pt}{14.4pt}\selectfont\noindent\textbf{[Company Name]} - [Department] - [Position] \hfill [Start Date] - [End Date]\par}
+\begin{itemize}[leftmargin=1em, label=, itemsep=0.35ex, topsep=0.05ex]
+\item \textbf{[Project Lead]} Brief description of the project;
+\item \textbf{[Responsibility]} Describe your specific role and quantify achievements;
+\item \textbf{[Impact]} Mention results like efficiency gain X\% or error reduction Y\%.
+\end{itemize}
+
+\cvsection{star}{Projects \& Competitions}
+
+{\fontsize{12pt}{14.4pt}\selectfont\noindent\textbf{[Project Name]} - [Role] \hfill [Start Date] - [End Date]\par}
+\begin{itemize}[leftmargin=1em, label=, itemsep=0.35ex, topsep=0.05ex]
+\item \textbf{[Background]} Project goals;
+\item \textbf{[Technical Details]} Technologies and methodologies used;
+\item \textbf{[Outcome]} Awards, patents, or publications.
+\end{itemize}
+
+\cvsection{user}{Personal Details}
+
+\begin{itemize}[leftmargin=0pt, label=, itemsep=0.3ex, topsep=0.3ex]
+\item \textbf{[Honors]} Scholarships, awards, etc.
+\item \textbf{[Skills]} Languages, software, professional skills.
+\item \textbf{[Self-Evaluation]} Concise professional summary.
+\end{itemize}
+
+\end{document}
