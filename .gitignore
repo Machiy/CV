@@ -23,7 +23,10 @@ env/
 .idea/
 .DS_Store
 
-# Sensitive data (optional, but good practice for templates)
+# Sensitive data
+resume_cn.tex
+resume_en.tex
+本科毕业证件照.jpg
 # resume_cn.pdf
 # resume_en.pdf
 # resume_combined.pdf
