@@ -1,18 +1,25 @@
 # 个人简历项目 - 马驰原
 
-本项目包含了使用 LaTeX 编写的马驰原的中英文个人简历。项目旨在通过自动化工具维护简历的高效更新与多版本整理。
+LaTeX 简历的模板与构建工具链。
+
+**本仓库只包含去除了个人信息的模板**（位于 `example/`）。真实简历含手机号、住址等个人信息，
+不纳入版本库——这样仓库可以公开，而真实内容只留在本地。
 
 ## 项目结构
 
-- `resume_cn.tex`: 中文简历源码文件。
-- `resume_en.tex`: 英文简历源码文件。
-- `resume_cn.pdf`: 生成的中文简历（已加入 `.gitignore`，需本地编译）。
-- `resume_en.pdf`: 生成的英文简历（已加入 `.gitignore`，需本地编译）。
-- `resume_combined.pdf`: 合并后的 PDF（英文在前，中文在后）。
+仓库内实际包含：
+
+- `example/resume_cn.tex`: 中文简历模板（占位内容，3410 字节）。
+- `example/resume_en.tex`: 英文简历模板（占位内容，3009 字节）。
 - `watch.py`: 自动编译脚本，监控 `.tex` 文件更改并实时重新生成 PDF。
-- `sync.sh`: GitHub 同步脚本，方便一键提交代码。
-- `example/`: 简历模板目录，去除了个人信息，供参考使用。
-- `本科毕业证件照.jpg`: 简历中使用的个人照片预览。
+- `sync.sh`: GitHub 同步脚本，方便一键提交。
+- `LICENSE`: MIT。
+
+本地工作副本中还会存在以下文件，均已被 `.gitignore` 排除：
+
+- `resume_cn.tex` / `resume_en.tex`: 填入真实信息后的简历源码。
+- `resume_cn.pdf` / `resume_en.pdf` / `resume_combined.pdf`: 编译产物。
+- 简历用个人照片。
 
 ## 环境要求
 
@@ -22,17 +29,27 @@
 
 ## 使用方法
 
-### 手动编译
+### 初始化
 
-手动编译特定版本：
+把模板复制到仓库根目录，再填入自己的信息：
+
+```bash
+cp example/resume_en.tex resume_en.tex
+cp example/resume_cn.tex resume_cn.tex
+```
+
+### 手动编译
 
 ```bash
 # 编译英文版
-~/miniconda3/envs/latex_env/bin/tectonic resume_en.tex
+tectonic resume_en.tex
 
 # 编译中文版
-~/miniconda3/envs/latex_env/bin/tectonic resume_cn.tex
+tectonic resume_cn.tex
 ```
+
+如果使用独立的 LaTeX 环境，把 `tectonic` 换成对应路径，例如
+`~/miniconda3/envs/latex_env/bin/tectonic`。
 
 ### 自动监视编译
 
@@ -43,13 +60,12 @@ python3 watch.py
 ```
 
 该脚本会：
+
 1. 检测 `resume_en.tex` 或 `resume_cn.tex` 的更改。
 2. 使用 `tectonic` 重新编译更新的文件。
 3. 将两个版本合并为 `resume_combined.pdf`。
 
 ### 同步到 GitHub
-
-使用提供的脚本快速提交更改：
 
 ```bash
 ./sync.sh "更新了实习经历细节"
@@ -65,12 +81,19 @@ python3 watch.py
 
 # CV Project - MA CHIYUAN (English Summary)
 
-This project maintains LaTeX source files for professional CVs in both English and Chinese.
+A LaTeX-based CV toolchain. This repository ships **templates only** (`example/`);
+the real resumes contain personal contact details and are intentionally excluded from
+version control.
 
 ## Quick Start
 
-1.  **Compile**: Use `tectonic resume_en.tex` or `tectonic resume_cn.tex`.
-2.  **Auto-build**: Run `python3 watch.py` to monitor changes.
-3.  **Sync**: Run `./sync.sh` to push updates to your repository.
+1.  **Init**: `cp example/resume_en.tex resume_en.tex` (and the Chinese counterpart).
+2.  **Compile**: `tectonic resume_en.tex` / `tectonic resume_cn.tex`.
+3.  **Auto-build**: `python3 watch.py` monitors changes and rebuilds.
+4.  **Sync**: `./sync.sh` pushes updates.
 
 Refer to the Chinese section above for full details.
+
+## License
+
+MIT — see [LICENSE](LICENSE).
